@@ -66,8 +66,8 @@ def instance2graph(instance, reify = False, text = None):
         if match:
             label = label[:match.start()];
             if not reify:
-                properties = ["CARG"] + properties;
-                values = [match.group(1)] + values;
+                properties = ["CARG"] + properties if properties else ["CARG"];
+                values = [match.group(1)] + values if values else [match.group(1)];
             else:
                 carg = match.group(1);
         anchors = None;
